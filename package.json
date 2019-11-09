@@ -1,38 +1,39 @@
 {
- "name": "webpack-temp",
- "version": "1.0.0",
- "description": "webpack for front-end",
- "main": "index.js",
- "scripts": {
-  "dev": "webpack-dev-server --open --config webpack.dev.config.js",
-  "build": "npm run clean && webpack --config webpack.build.config.js",
-  "clean": "rimraf dist"
- },
- "browserslist": [
-  "last 1 version",
-  "> 3%"
- ],
- "keywords": [],
- "author": "eng1n3x",
- "license": "ISC",
- "devDependencies": {
-  "autoprefixer": "^9.6.5",
-  "babel-core": "^6.26.3",
-  "babel-loader": "^8.0.6",
-  "babel-preset-env": "^1.7.0",
-  "css-loader": "^3.2.0",
-  "cssnano": "^4.1.10",
-  "file-loader": "^4.2.0",
-  "html-webpack-plugin": "^3.2.0",
-  "mini-css-extract-plugin": "^0.8.0",
-  "node-sass": "^4.12.0",
-  "postcss-loader": "^3.0.0",
-  "rimraf": "^3.0.0",
-  "sass-loader": "^8.0.0",
-  "style-loader": "^1.0.0",
-  "webpack": "^4.41.2",
-  "webpack-cli": "^3.3.9",
-  "webpack-dev-server": "^3.8.2",
-  "webpack-merge": "^4.2.2"
- }
+  "name": "webpack-temp",
+  "version": "1.0.0",
+  "description": "webpack for front-end",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config webpack.dev.config.js",
+    "build": "npm run clean && webpack --config webpack.build.config.js",
+    "clean": "rimraf dist"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 3%"
+  ],
+  "keywords": [],
+  "author": "eng1n3x",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "autoprefixer": "^9.6.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
+  }
 }
