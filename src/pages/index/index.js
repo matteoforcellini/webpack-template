@@ -1,3 +1,4 @@
+//JavaScript
 import "./js/main.js";
-
-import "./style/style.scss";
+// SCSS
+import "./style/index.scss";

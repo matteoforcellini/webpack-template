@@ -1,20 +1,20 @@
 const path = require("path");
-const webpack = require("webpack");
+const PAGES = require("./develop.pages.js");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const PAGES = require("./pages.js");
-
 module.exports = {
-  entry: (() => {
+  //entry point
+  entry: () => {
+    // forEach for all pages entry .js points
     const entries = {};
     PAGES.forEach(page => (entries[page] = `./src/pages/${page}/${page}.js`));
     return entries;
-  })(),
-
+  },
+  //output point
   output: {
-    filename: "js/[name].js", // output point for production (dist)
-    path: path.resolve(__dirname, "dist")
+    filename: "js/[name].js", // output point for production
+    path: path.resolve(__dirname, "dist") // path for output
   },
   module: {
     rules: [
@@ -33,15 +33,22 @@ module.exports = {
             loader: "style-loader"
           },
           {
+            //Minimize css plugin
             loader: MiniCssExtractPlugin.loader
           },
           {
             // CSS to JS
-            loader: "css-loader"
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
           },
           {
             // SASS/SCSS to CSS
-            loader: "sass-loader"
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
           },
           {
             //autoprefixer + cssnano in postcss.config.js, powered by postcss-loader
@@ -54,6 +61,7 @@ module.exports = {
   },
   plugins: PAGES.map(
     page =>
+      //HTML loader for all .html files
       new HtmlWebpackPlugin({
         template: __dirname + `/src/pages/${page}/${page}.html`,
         filename: `${page}.html`,
@@ -61,12 +69,11 @@ module.exports = {
         title: page,
         inject: "body"
       })
-  ).concat([
+  ).concat(
+    //Minimize css files
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "style/[name].css",
-      chunkFilename: "style/[id].css"
+      filename: `styles/[name].css`,
+      chunkFilename: `styles/[id].css`
     })
-  ])
+  )
 };

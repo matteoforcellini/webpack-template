@@ -1,19 +1,28 @@
 {
-  "name": "webpack-temp",
-  "version": "1.0.0",
-  "description": "webpack for front-end",
+  "name": "webpack-template",
+  "version": "1.0.1",
+  "description": "webpack for frontend",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.config.js",
     "build": "npm run clean && webpack --config webpack.build.config.js",
     "clean": "rimraf dist"
   },
-  "browserslist": [
-    "last 1 version",
-    "> 3%"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ENG1N3X/webpack-template.git"
+  },
+  "keywords": [
+    "template",
+    "webpack",
+    "frontend",
+    "html",
+    "css",
+    "sass",
+    "javascript",
+    "nodejs"
   ],
-  "keywords": [],
-  "author": "eng1n3x",
+  "author": "eng1n3x (https://github.com/ENG1N3X)",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.2",
