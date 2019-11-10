@@ -1,1 +1,1 @@
-console.log("first page");
+console.log("Hey man");

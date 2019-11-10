@@ -1,1 +1,1 @@
-console.log("second page");
+console.log("Hello, its second page");

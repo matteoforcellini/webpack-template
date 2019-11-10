@@ -1,4 +1,5 @@
 const merge = require("webpack-merge");
+const webpack = require("webpack");
 const baseWebpackConfig = require("./webpack.base.config");
 module.exports = merge(baseWebpackConfig, {
   mode: "development",
@@ -11,5 +12,9 @@ module.exports = merge(baseWebpackConfig, {
     contentBase: "./src/pages"
   },
   devtool: "cheap-module-eval-source-map",
-  plugins: []
+  plugins: [
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[file].map"
+    })
+  ]
 });

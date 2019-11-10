@@ -1,4 +1,6 @@
-//JavaScript
+// JavaScript
 import "./js/main.js";
-//SCSS
+// SCSS
 import "./style/second.scss";
+// Fonts
+import "../fonts/index.scss";

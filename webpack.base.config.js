@@ -25,6 +25,27 @@ module.exports = {
         exclude: "/node_modules/"
       },
       {
+        test: /\.css$/,
+        include: /src/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.(sass|scss)$/,
         include: /src/,
         use: [
@@ -54,6 +75,30 @@ module.exports = {
             //autoprefixer + cssnano in postcss.config.js, powered by postcss-loader
             loader: "postcss-loader",
             options: { sourceMap: true, config: { path: "./postcss.config.js" } }
+          }
+        ]
+      },
+      {
+        test: /\.(eot|woff|ttf)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "fonts/[name].[ext]",
+              publicPath: "../"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "img/[name].[ext]",
+              publicPath: "../"
+            }
           }
         ]
       }
