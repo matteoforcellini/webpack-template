@@ -25,27 +25,6 @@ module.exports = {
         exclude: "/node_modules/"
       },
       {
-        test: /\.css$/,
-        include: /src/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
-      {
         test: /\.(sass|scss)$/,
         include: /src/,
         use: [
@@ -82,6 +61,7 @@ module.exports = {
         ]
       },
       {
+        // loader for fonts
         test: /\.(eot|woff|ttf)$/,
         use: [
           {
@@ -94,6 +74,7 @@ module.exports = {
         ]
       },
       {
+        // loader for pictures
         test: /\.(jpe?g|png|svg)$/,
         use: [
           {
@@ -107,21 +88,22 @@ module.exports = {
       }
     ]
   },
-  plugins: PAGES.map(
-    page =>
-      //HTML loader for all .html files
-      new HtmlWebpackPlugin({
-        template: __dirname + `/src/${page}/${page}.html`,
-        filename: `${page}.html`,
-        chunks: ["common", page],
-        title: page,
-        inject: "body"
-      })
-  ).concat(
+  plugins: [
     //Minimize css files
     new MiniCssExtractPlugin({
       filename: `styles/[name].css`,
       chunkFilename: `styles/[id].css`
-    })
-  )
+    }),
+    ...PAGES.map(
+      page =>
+        //HTML loader for all .html files
+        new HtmlWebpackPlugin({
+          template: __dirname + `/src/${page}/${page}.html`,
+          filename: `${page}.html`,
+          chunks: ["common", page],
+          title: page,
+          inject: "body"
+        })
+    )
+  ]
 };
