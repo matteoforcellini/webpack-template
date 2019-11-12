@@ -9,7 +9,7 @@ module.exports = merge(baseWebpackConfig, {
       warnings: false,
       errors: true
     },
-    contentBase: "./src/pages"
+    contentBase: "./src"
   },
   devtool: "cheap-module-eval-source-map",
   plugins: [

@@ -8,7 +8,7 @@ module.exports = {
   entry: () => {
     // forEach for all pages entry .js points
     const entries = {};
-    PAGES.forEach(page => (entries[page] = `./src/pages/${page}/${page}.js`));
+    PAGES.forEach(page => (entries[page] = `./src/${page}/${page}.js`));
     return entries;
   },
   //output point
@@ -74,7 +74,10 @@ module.exports = {
           {
             //autoprefixer + cssnano in postcss.config.js, powered by postcss-loader
             loader: "postcss-loader",
-            options: { sourceMap: true, config: { path: "./postcss.config.js" } }
+            options: {
+              sourceMap: true,
+              config: { path: "./postcss.config.js" }
+            }
           }
         ]
       },
@@ -108,7 +111,7 @@ module.exports = {
     page =>
       //HTML loader for all .html files
       new HtmlWebpackPlugin({
-        template: __dirname + `/src/pages/${page}/${page}.html`,
+        template: __dirname + `/src/${page}/${page}.html`,
         filename: `${page}.html`,
         chunks: ["common", page],
         title: page,
