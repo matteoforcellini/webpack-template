@@ -9,7 +9,7 @@
 
 # Description
 
-**Comming soon..** <br>
+**Comming soon...** <br>
 
 <br>
 
