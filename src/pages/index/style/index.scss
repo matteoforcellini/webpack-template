@@ -1,21 +1,7 @@
+@import "../../modules/index.scss";
+
 body {
   font-family: "Roboto-BlackItalic", sans-serif;
-}
-
-.navigation {
-  margin-bottom: 50px;
-}
-
-.navigation-link {
-  text-decoration: none !important;
-  margin-right: 20px;
-  color: purple;
-  &:hover {
-    color: red;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
 }
 
 .header__title {
@@ -24,10 +10,4 @@ body {
 
 .picture {
   width: 50%;
-}
-
-.footer {
-  margin-top: 50px;
-  font-family: "Roboto-Regular", sans-serif;
-  color: #000;
 }
