@@ -8,7 +8,7 @@ module.exports = {
   entry: () => {
     // forEach for all pages entry .js points
     const entries = {};
-    PAGES.forEach(page => (entries[page] = `./src/${page}/${page}.js`));
+    PAGES.forEach(page => (entries[page] = `./src/pages/${page}/${page}.js`));
     return entries;
   },
   //output point
@@ -23,6 +23,11 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: "/node_modules/"
+      },
+      {
+        // Convert pug file(s) to HTML5
+        test: /\.pug$/,
+        loader: "pug-loader"
       },
       {
         test: /\.(sass|scss)$/,
@@ -98,10 +103,9 @@ module.exports = {
       page =>
         //HTML loader for all .html files
         new HtmlWebpackPlugin({
-          template: __dirname + `/src/${page}/${page}.html`,
+          template: __dirname + `/src/pages/${page}/${page}.pug`,
           filename: `${page}.html`,
           chunks: ["common", page],
-          title: page,
           inject: "body"
         })
     )
