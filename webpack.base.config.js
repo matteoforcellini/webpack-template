@@ -49,18 +49,18 @@ module.exports = {
             }
           },
           {
-            // SASS/SCSS to CSS
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
             //autoprefixer + cssnano in postcss.config.js, powered by postcss-loader
             loader: "postcss-loader",
             options: {
               sourceMap: true,
               config: { path: "./postcss.config.js" }
+            }
+          },
+          {
+            // SASS/SCSS to CSS
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
             }
           }
         ]

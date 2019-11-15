@@ -9,5 +9,10 @@ body {
 }
 
 .picture {
-  width: 50%;
+  background-image: url(../../../img/demo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+  max-height: 300px;
 }
